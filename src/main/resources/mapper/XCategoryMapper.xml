@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zl.mapper.XCategoryMapper">
+  <resultMap id="BaseResultMap" type="com.zl.domain.XCategory">
+    <!--@mbg.generated-->
+    <!--@Table X_CATEGORY-->
+    <id column="CATEGORY_ID" jdbcType="DECIMAL" property="categoryId" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="PARENT_ID" jdbcType="DECIMAL" property="parentId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    CATEGORY_ID, "NAME", PARENT_ID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from X_CATEGORY
+    where CATEGORY_ID = #{categoryId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    <!--@mbg.generated-->
+    delete from X_CATEGORY
+    where CATEGORY_ID = #{categoryId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.zl.domain.XCategory">
+    <!--@mbg.generated-->
+    insert into X_CATEGORY (CATEGORY_ID, "NAME", PARENT_ID
+      )
+    values (#{categoryId,jdbcType=DECIMAL}, #{name,jdbcType=VARCHAR}, #{parentId,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zl.domain.XCategory">
+    <!--@mbg.generated-->
+    insert into X_CATEGORY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="categoryId != null">
+        CATEGORY_ID,
+      </if>
+      <if test="name != null">
+        "NAME",
+      </if>
+      <if test="parentId != null">
+        PARENT_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="categoryId != null">
+        #{categoryId,jdbcType=DECIMAL},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null">
+        #{parentId,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zl.domain.XCategory">
+    <!--@mbg.generated-->
+    update X_CATEGORY
+    <set>
+      <if test="name != null">
+        "NAME" = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null">
+        PARENT_ID = #{parentId,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where CATEGORY_ID = #{categoryId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zl.domain.XCategory">
+    <!--@mbg.generated-->
+    update X_CATEGORY
+    set "NAME" = #{name,jdbcType=VARCHAR},
+      PARENT_ID = #{parentId,jdbcType=DECIMAL}
+    where CATEGORY_ID = #{categoryId,jdbcType=DECIMAL}
+  </update>
+</mapper>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zl.mapper.XProductMapper">
+  <resultMap id="BaseResultMap" type="com.zl.domain.XProduct">
+    <!--@mbg.generated-->
+    <!--@Table X_PRODUCT-->
+    <id column="PRO_ID" jdbcType="DECIMAL" property="proId" />
+    <result column="PRO_NAME" jdbcType="VARCHAR" property="proName" />
+    <result column="PRO_PLACE" jdbcType="VARCHAR" property="proPlace" />
+    <result column="PRO_STYLE" jdbcType="VARCHAR" property="proStyle" />
+    <result column="PRO_LEVEL" jdbcType="VARCHAR" property="proLevel" />
+    <result column="PRO_COUNT" jdbcType="DECIMAL" property="proCount" />
+    <result column="HOUSE_ASK" jdbcType="DECIMAL" property="houseAsk" />
+    <result column="PRO_PRICE" jdbcType="DECIMAL" property="proPrice" />
+    <result column="PRO_HOUSE" jdbcType="VARCHAR" property="proHouse" />
+    <result column="PRO_NOWGO" jdbcType="VARCHAR" property="proNowgo" />
+    <result column="PRO_SUPPLY" jdbcType="VARCHAR" property="proSupply" />
+    <result column="SUPPLY_PHONE" jdbcType="VARCHAR" property="supplyPhone" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    PRO_ID, PRO_NAME, PRO_PLACE, PRO_STYLE, PRO_LEVEL, PRO_COUNT, HOUSE_ASK, PRO_PRICE, 
+    PRO_HOUSE, PRO_NOWGO, PRO_SUPPLY, SUPPLY_PHONE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from X_PRODUCT
+    where PRO_ID = #{proId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    <!--@mbg.generated-->
+    delete from X_PRODUCT
+    where PRO_ID = #{proId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.zl.domain.XProduct">
+    <!--@mbg.generated-->
+    insert into X_PRODUCT (PRO_ID, PRO_NAME, PRO_PLACE, 
+      PRO_STYLE, PRO_LEVEL, PRO_COUNT, 
+      HOUSE_ASK, PRO_PRICE, PRO_HOUSE, 
+      PRO_NOWGO, PRO_SUPPLY, SUPPLY_PHONE
+      )
+    values (#{proId,jdbcType=DECIMAL}, #{proName,jdbcType=VARCHAR}, #{proPlace,jdbcType=VARCHAR}, 
+      #{proStyle,jdbcType=VARCHAR}, #{proLevel,jdbcType=VARCHAR}, #{proCount,jdbcType=DECIMAL}, 
+      #{houseAsk,jdbcType=DECIMAL}, #{proPrice,jdbcType=DECIMAL}, #{proHouse,jdbcType=VARCHAR}, 
+      #{proNowgo,jdbcType=VARCHAR}, #{proSupply,jdbcType=VARCHAR}, #{supplyPhone,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zl.domain.XProduct">
+    <!--@mbg.generated-->
+    insert into X_PRODUCT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="proId != null">
+        PRO_ID,
+      </if>
+      <if test="proName != null">
+        PRO_NAME,
+      </if>
+      <if test="proPlace != null">
+        PRO_PLACE,
+      </if>
+      <if test="proStyle != null">
+        PRO_STYLE,
+      </if>
+      <if test="proLevel != null">
+        PRO_LEVEL,
+      </if>
+      <if test="proCount != null">
+        PRO_COUNT,
+      </if>
+      <if test="houseAsk != null">
+        HOUSE_ASK,
+      </if>
+      <if test="proPrice != null">
+        PRO_PRICE,
+      </if>
+      <if test="proHouse != null">
+        PRO_HOUSE,
+      </if>
+      <if test="proNowgo != null">
+        PRO_NOWGO,
+      </if>
+      <if test="proSupply != null">
+        PRO_SUPPLY,
+      </if>
+      <if test="supplyPhone != null">
+        SUPPLY_PHONE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="proId != null">
+        #{proId,jdbcType=DECIMAL},
+      </if>
+      <if test="proName != null">
+        #{proName,jdbcType=VARCHAR},
+      </if>
+      <if test="proPlace != null">
+        #{proPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="proStyle != null">
+        #{proStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="proLevel != null">
+        #{proLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="proCount != null">
+        #{proCount,jdbcType=DECIMAL},
+      </if>
+      <if test="houseAsk != null">
+        #{houseAsk,jdbcType=DECIMAL},
+      </if>
+      <if test="proPrice != null">
+        #{proPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="proHouse != null">
+        #{proHouse,jdbcType=VARCHAR},
+      </if>
+      <if test="proNowgo != null">
+        #{proNowgo,jdbcType=VARCHAR},
+      </if>
+      <if test="proSupply != null">
+        #{proSupply,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyPhone != null">
+        #{supplyPhone,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zl.domain.XProduct">
+    <!--@mbg.generated-->
+    update X_PRODUCT
+    <set>
+      <if test="proName != null">
+        PRO_NAME = #{proName,jdbcType=VARCHAR},
+      </if>
+      <if test="proPlace != null">
+        PRO_PLACE = #{proPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="proStyle != null">
+        PRO_STYLE = #{proStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="proLevel != null">
+        PRO_LEVEL = #{proLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="proCount != null">
+        PRO_COUNT = #{proCount,jdbcType=DECIMAL},
+      </if>
+      <if test="houseAsk != null">
+        HOUSE_ASK = #{houseAsk,jdbcType=DECIMAL},
+      </if>
+      <if test="proPrice != null">
+        PRO_PRICE = #{proPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="proHouse != null">
+        PRO_HOUSE = #{proHouse,jdbcType=VARCHAR},
+      </if>
+      <if test="proNowgo != null">
+        PRO_NOWGO = #{proNowgo,jdbcType=VARCHAR},
+      </if>
+      <if test="proSupply != null">
+        PRO_SUPPLY = #{proSupply,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyPhone != null">
+        SUPPLY_PHONE = #{supplyPhone,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PRO_ID = #{proId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zl.domain.XProduct">
+    <!--@mbg.generated-->
+    update X_PRODUCT
+    set PRO_NAME = #{proName,jdbcType=VARCHAR},
+      PRO_PLACE = #{proPlace,jdbcType=VARCHAR},
+      PRO_STYLE = #{proStyle,jdbcType=VARCHAR},
+      PRO_LEVEL = #{proLevel,jdbcType=VARCHAR},
+      PRO_COUNT = #{proCount,jdbcType=DECIMAL},
+      HOUSE_ASK = #{houseAsk,jdbcType=DECIMAL},
+      PRO_PRICE = #{proPrice,jdbcType=DECIMAL},
+      PRO_HOUSE = #{proHouse,jdbcType=VARCHAR},
+      PRO_NOWGO = #{proNowgo,jdbcType=VARCHAR},
+      PRO_SUPPLY = #{proSupply,jdbcType=VARCHAR},
+      SUPPLY_PHONE = #{supplyPhone,jdbcType=VARCHAR}
+    where PRO_ID = #{proId,jdbcType=DECIMAL}
+  </update>
+</mapper>

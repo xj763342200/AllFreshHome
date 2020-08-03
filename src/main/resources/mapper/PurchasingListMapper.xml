@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zl.mapper.PurchasingListMapper">
+  <resultMap id="BaseResultMap" type="com.zl.domain.PurchasingList">
+    <!--@mbg.generated-->
+    <!--@Table PURCHASING_LIST-->
+    <id column="PUR_ID" jdbcType="DECIMAL" property="purId" />
+    <result column="USER_ID" jdbcType="DECIMAL" property="userId" />
+    <result column="PRO_NAME" jdbcType="VARCHAR" property="proName" />
+    <result column="PLACE_ASK" jdbcType="VARCHAR" property="placeAsk" />
+    <result column="PRO_STYLE" jdbcType="VARCHAR" property="proStyle" />
+    <result column="LEVEL_ASK" jdbcType="VARCHAR" property="levelAsk" />
+    <result column="HOUSE_ASK" jdbcType="VARCHAR" property="houseAsk" />
+    <result column="PRO_NOWGO" jdbcType="VARCHAR" property="proNowgo" />
+    <result column="MAXPRICE" jdbcType="DECIMAL" property="maxprice" />
+    <result column="PURCHASE_EXPLIAN" jdbcType="VARCHAR" property="purchaseExplian" />
+    <result column="PAY_STYLE" jdbcType="VARCHAR" property="payStyle" />
+    <result column="INVOICE_STYLE" jdbcType="VARCHAR" property="invoiceStyle" />
+    <result column="GET_ADDRESS" jdbcType="VARCHAR" property="getAddress" />
+    <result column="STOP_TIME" jdbcType="TIMESTAMP" property="stopTime" />
+    <result column="CONCATS" jdbcType="VARCHAR" property="concats" />
+    <result column="COMPANY" jdbcType="VARCHAR" property="company" />
+    <result column="PHONE" jdbcType="VARCHAR" property="phone" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    PUR_ID, USER_ID, PRO_NAME, PLACE_ASK, PRO_STYLE, LEVEL_ASK, HOUSE_ASK, PRO_NOWGO, 
+    MAXPRICE, PURCHASE_EXPLIAN, PAY_STYLE, INVOICE_STYLE, GET_ADDRESS, STOP_TIME, CONCATS, 
+    COMPANY, PHONE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from PURCHASING_LIST
+    where PUR_ID = #{purId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from PURCHASING_LIST
+    where PUR_ID = #{purId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.zl.domain.PurchasingList">
+    <!--@mbg.generated-->
+    insert into PURCHASING_LIST (PUR_ID, USER_ID, PRO_NAME, 
+      PLACE_ASK, PRO_STYLE, LEVEL_ASK, 
+      HOUSE_ASK, PRO_NOWGO, MAXPRICE, 
+      PURCHASE_EXPLIAN, PAY_STYLE, INVOICE_STYLE, 
+      GET_ADDRESS, STOP_TIME, CONCATS, 
+      COMPANY, PHONE)
+    values (#{purId,jdbcType=DECIMAL}, #{userId,jdbcType=DECIMAL}, #{proName,jdbcType=VARCHAR}, 
+      #{placeAsk,jdbcType=VARCHAR}, #{proStyle,jdbcType=VARCHAR}, #{levelAsk,jdbcType=VARCHAR}, 
+      #{houseAsk,jdbcType=VARCHAR}, #{proNowgo,jdbcType=VARCHAR}, #{maxprice,jdbcType=DECIMAL}, 
+      #{purchaseExplian,jdbcType=VARCHAR}, #{payStyle,jdbcType=VARCHAR}, #{invoiceStyle,jdbcType=VARCHAR}, 
+      #{getAddress,jdbcType=VARCHAR}, #{stopTime,jdbcType=TIMESTAMP}, #{concats,jdbcType=VARCHAR}, 
+      #{company,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zl.domain.PurchasingList">
+    <!--@mbg.generated-->
+    insert into PURCHASING_LIST
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="purId != null">
+        PUR_ID,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="proName != null">
+        PRO_NAME,
+      </if>
+      <if test="placeAsk != null">
+        PLACE_ASK,
+      </if>
+      <if test="proStyle != null">
+        PRO_STYLE,
+      </if>
+      <if test="levelAsk != null">
+        LEVEL_ASK,
+      </if>
+      <if test="houseAsk != null">
+        HOUSE_ASK,
+      </if>
+      <if test="proNowgo != null">
+        PRO_NOWGO,
+      </if>
+      <if test="maxprice != null">
+        MAXPRICE,
+      </if>
+      <if test="purchaseExplian != null">
+        PURCHASE_EXPLIAN,
+      </if>
+      <if test="payStyle != null">
+        PAY_STYLE,
+      </if>
+      <if test="invoiceStyle != null">
+        INVOICE_STYLE,
+      </if>
+      <if test="getAddress != null">
+        GET_ADDRESS,
+      </if>
+      <if test="stopTime != null">
+        STOP_TIME,
+      </if>
+      <if test="concats != null">
+        CONCATS,
+      </if>
+      <if test="company != null">
+        COMPANY,
+      </if>
+      <if test="phone != null">
+        PHONE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="purId != null">
+        #{purId,jdbcType=DECIMAL},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=DECIMAL},
+      </if>
+      <if test="proName != null">
+        #{proName,jdbcType=VARCHAR},
+      </if>
+      <if test="placeAsk != null">
+        #{placeAsk,jdbcType=VARCHAR},
+      </if>
+      <if test="proStyle != null">
+        #{proStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="levelAsk != null">
+        #{levelAsk,jdbcType=VARCHAR},
+      </if>
+      <if test="houseAsk != null">
+        #{houseAsk,jdbcType=VARCHAR},
+      </if>
+      <if test="proNowgo != null">
+        #{proNowgo,jdbcType=VARCHAR},
+      </if>
+      <if test="maxprice != null">
+        #{maxprice,jdbcType=DECIMAL},
+      </if>
+      <if test="purchaseExplian != null">
+        #{purchaseExplian,jdbcType=VARCHAR},
+      </if>
+      <if test="payStyle != null">
+        #{payStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceStyle != null">
+        #{invoiceStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="getAddress != null">
+        #{getAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="stopTime != null">
+        #{stopTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="concats != null">
+        #{concats,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zl.domain.PurchasingList">
+    <!--@mbg.generated-->
+    update PURCHASING_LIST
+    <set>
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=DECIMAL},
+      </if>
+      <if test="proName != null">
+        PRO_NAME = #{proName,jdbcType=VARCHAR},
+      </if>
+      <if test="placeAsk != null">
+        PLACE_ASK = #{placeAsk,jdbcType=VARCHAR},
+      </if>
+      <if test="proStyle != null">
+        PRO_STYLE = #{proStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="levelAsk != null">
+        LEVEL_ASK = #{levelAsk,jdbcType=VARCHAR},
+      </if>
+      <if test="houseAsk != null">
+        HOUSE_ASK = #{houseAsk,jdbcType=VARCHAR},
+      </if>
+      <if test="proNowgo != null">
+        PRO_NOWGO = #{proNowgo,jdbcType=VARCHAR},
+      </if>
+      <if test="maxprice != null">
+        MAXPRICE = #{maxprice,jdbcType=DECIMAL},
+      </if>
+      <if test="purchaseExplian != null">
+        PURCHASE_EXPLIAN = #{purchaseExplian,jdbcType=VARCHAR},
+      </if>
+      <if test="payStyle != null">
+        PAY_STYLE = #{payStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceStyle != null">
+        INVOICE_STYLE = #{invoiceStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="getAddress != null">
+        GET_ADDRESS = #{getAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="stopTime != null">
+        STOP_TIME = #{stopTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="concats != null">
+        CONCATS = #{concats,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        COMPANY = #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        PHONE = #{phone,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PUR_ID = #{purId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zl.domain.PurchasingList">
+    <!--@mbg.generated-->
+    update PURCHASING_LIST
+    set USER_ID = #{userId,jdbcType=DECIMAL},
+      PRO_NAME = #{proName,jdbcType=VARCHAR},
+      PLACE_ASK = #{placeAsk,jdbcType=VARCHAR},
+      PRO_STYLE = #{proStyle,jdbcType=VARCHAR},
+      LEVEL_ASK = #{levelAsk,jdbcType=VARCHAR},
+      HOUSE_ASK = #{houseAsk,jdbcType=VARCHAR},
+      PRO_NOWGO = #{proNowgo,jdbcType=VARCHAR},
+      MAXPRICE = #{maxprice,jdbcType=DECIMAL},
+      PURCHASE_EXPLIAN = #{purchaseExplian,jdbcType=VARCHAR},
+      PAY_STYLE = #{payStyle,jdbcType=VARCHAR},
+      INVOICE_STYLE = #{invoiceStyle,jdbcType=VARCHAR},
+      GET_ADDRESS = #{getAddress,jdbcType=VARCHAR},
+      STOP_TIME = #{stopTime,jdbcType=TIMESTAMP},
+      CONCATS = #{concats,jdbcType=VARCHAR},
+      COMPANY = #{company,jdbcType=VARCHAR},
+      PHONE = #{phone,jdbcType=VARCHAR}
+    where PUR_ID = #{purId,jdbcType=DECIMAL}
+  </update>
+</mapper>

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zl.mapper.XOrderMapper">
+  <resultMap id="BaseResultMap" type="com.zl.domain.XOrder">
+    <!--@mbg.generated-->
+    <!--@Table X_ORDER-->
+    <id column="ORDER_ID" jdbcType="DECIMAL" property="orderId" />
+    <result column="PRO_NAME" jdbcType="VARCHAR" property="proName" />
+    <result column="PRO_STYLE" jdbcType="VARCHAR" property="proStyle" />
+    <result column="PRO_PRICE" jdbcType="DECIMAL" property="proPrice" />
+    <result column="USER_ID" jdbcType="DECIMAL" property="userId" />
+    <result column="ORDER_COUNT" jdbcType="DECIMAL" property="orderCount" />
+    <result column="TOTAL_PRICE" jdbcType="DECIMAL" property="totalPrice" />
+    <result column="STATUS" jdbcType="DECIMAL" property="status" />
+    <result column="PURCHESER" jdbcType="VARCHAR" property="purcheser" />
+    <result column="ORDER_NO" jdbcType="DECIMAL" property="orderNo" />
+    <result column="ORDER_TIME" jdbcType="TIMESTAMP" property="orderTime" />
+    <result column="CONTACT_PHONE" jdbcType="VARCHAR" property="contactPhone" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    ORDER_ID, PRO_NAME, PRO_STYLE, PRO_PRICE, USER_ID, ORDER_COUNT, TOTAL_PRICE, "STATUS", 
+    PURCHESER, ORDER_NO, ORDER_TIME, CONTACT_PHONE, ADDRESS
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from X_ORDER
+    where ORDER_ID = #{orderId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from X_ORDER
+    where ORDER_ID = #{orderId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.zl.domain.XOrder">
+    <!--@mbg.generated-->
+    insert into X_ORDER (ORDER_ID, PRO_NAME, PRO_STYLE, 
+      PRO_PRICE, USER_ID, ORDER_COUNT, 
+      TOTAL_PRICE, "STATUS", PURCHESER, 
+      ORDER_NO, ORDER_TIME, CONTACT_PHONE, 
+      ADDRESS)
+    values (#{orderId,jdbcType=DECIMAL}, #{proName,jdbcType=VARCHAR}, #{proStyle,jdbcType=VARCHAR}, 
+      #{proPrice,jdbcType=DECIMAL}, #{userId,jdbcType=DECIMAL}, #{orderCount,jdbcType=DECIMAL}, 
+      #{totalPrice,jdbcType=DECIMAL}, #{status,jdbcType=DECIMAL}, #{purcheser,jdbcType=VARCHAR}, 
+      #{orderNo,jdbcType=DECIMAL}, #{orderTime,jdbcType=TIMESTAMP}, #{contactPhone,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zl.domain.XOrder">
+    <!--@mbg.generated-->
+    insert into X_ORDER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        ORDER_ID,
+      </if>
+      <if test="proName != null">
+        PRO_NAME,
+      </if>
+      <if test="proStyle != null">
+        PRO_STYLE,
+      </if>
+      <if test="proPrice != null">
+        PRO_PRICE,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="orderCount != null">
+        ORDER_COUNT,
+      </if>
+      <if test="totalPrice != null">
+        TOTAL_PRICE,
+      </if>
+      <if test="status != null">
+        "STATUS",
+      </if>
+      <if test="purcheser != null">
+        PURCHESER,
+      </if>
+      <if test="orderNo != null">
+        ORDER_NO,
+      </if>
+      <if test="orderTime != null">
+        ORDER_TIME,
+      </if>
+      <if test="contactPhone != null">
+        CONTACT_PHONE,
+      </if>
+      <if test="address != null">
+        ADDRESS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        #{orderId,jdbcType=DECIMAL},
+      </if>
+      <if test="proName != null">
+        #{proName,jdbcType=VARCHAR},
+      </if>
+      <if test="proStyle != null">
+        #{proStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="proPrice != null">
+        #{proPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=DECIMAL},
+      </if>
+      <if test="orderCount != null">
+        #{orderCount,jdbcType=DECIMAL},
+      </if>
+      <if test="totalPrice != null">
+        #{totalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="purcheser != null">
+        #{purcheser,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNo != null">
+        #{orderNo,jdbcType=DECIMAL},
+      </if>
+      <if test="orderTime != null">
+        #{orderTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="contactPhone != null">
+        #{contactPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zl.domain.XOrder">
+    <!--@mbg.generated-->
+    update X_ORDER
+    <set>
+      <if test="proName != null">
+        PRO_NAME = #{proName,jdbcType=VARCHAR},
+      </if>
+      <if test="proStyle != null">
+        PRO_STYLE = #{proStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="proPrice != null">
+        PRO_PRICE = #{proPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=DECIMAL},
+      </if>
+      <if test="orderCount != null">
+        ORDER_COUNT = #{orderCount,jdbcType=DECIMAL},
+      </if>
+      <if test="totalPrice != null">
+        TOTAL_PRICE = #{totalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        "STATUS" = #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="purcheser != null">
+        PURCHESER = #{purcheser,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNo != null">
+        ORDER_NO = #{orderNo,jdbcType=DECIMAL},
+      </if>
+      <if test="orderTime != null">
+        ORDER_TIME = #{orderTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="contactPhone != null">
+        CONTACT_PHONE = #{contactPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        ADDRESS = #{address,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ORDER_ID = #{orderId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zl.domain.XOrder">
+    <!--@mbg.generated-->
+    update X_ORDER
+    set PRO_NAME = #{proName,jdbcType=VARCHAR},
+      PRO_STYLE = #{proStyle,jdbcType=VARCHAR},
+      PRO_PRICE = #{proPrice,jdbcType=DECIMAL},
+      USER_ID = #{userId,jdbcType=DECIMAL},
+      ORDER_COUNT = #{orderCount,jdbcType=DECIMAL},
+      TOTAL_PRICE = #{totalPrice,jdbcType=DECIMAL},
+      "STATUS" = #{status,jdbcType=DECIMAL},
+      PURCHESER = #{purcheser,jdbcType=VARCHAR},
+      ORDER_NO = #{orderNo,jdbcType=DECIMAL},
+      ORDER_TIME = #{orderTime,jdbcType=TIMESTAMP},
+      CONTACT_PHONE = #{contactPhone,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR}
+    where ORDER_ID = #{orderId,jdbcType=DECIMAL}
+  </update>
+</mapper>

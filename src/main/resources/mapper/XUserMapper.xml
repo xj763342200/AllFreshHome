@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zl.mapper.XUserMapper">
+  <resultMap id="BaseResultMap" type="com.zl.domain.XUser">
+    <!--@mbg.generated-->
+    <!--@Table X_USER-->
+    <id column="USER_ID" jdbcType="DECIMAL" property="userId" />
+    <result column="USERNAME" jdbcType="VARCHAR" property="username" />
+    <result column="USERPWD" jdbcType="VARCHAR" property="userpwd" />
+    <result column="REALNAME" jdbcType="VARCHAR" property="realname" />
+    <result column="ID_CARD" jdbcType="VARCHAR" property="idCard" />
+    <result column="ID_PHOTO" jdbcType="VARCHAR" property="idPhoto" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
+    <result column="PHONE" jdbcType="VARCHAR" property="phone" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="TELEPHONE" jdbcType="VARCHAR" property="telephone" />
+    <result column="PURCHASING_ID" jdbcType="DECIMAL" property="purchasingId" />
+    <result column="SUPPLY_ID" jdbcType="DECIMAL" property="supplyId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    USER_ID, USERNAME, USERPWD, REALNAME, ID_CARD, ID_PHOTO, ADDRESS, PHONE, EMAIL, TELEPHONE, 
+    PURCHASING_ID, SUPPLY_ID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from X_USER
+    where USER_ID = #{userId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    <!--@mbg.generated-->
+    delete from X_USER
+    where USER_ID = #{userId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.zl.domain.XUser">
+    <!--@mbg.generated-->
+    insert into X_USER (USER_ID, USERNAME, USERPWD, 
+      REALNAME, ID_CARD, ID_PHOTO, 
+      ADDRESS, PHONE, EMAIL, 
+      TELEPHONE, PURCHASING_ID, SUPPLY_ID
+      )
+    values (#{userId,jdbcType=DECIMAL}, #{username,jdbcType=VARCHAR}, #{userpwd,jdbcType=VARCHAR}, 
+      #{realname,jdbcType=VARCHAR}, #{idCard,jdbcType=VARCHAR}, #{idPhoto,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{telephone,jdbcType=VARCHAR}, #{purchasingId,jdbcType=DECIMAL}, #{supplyId,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zl.domain.XUser">
+    <!--@mbg.generated-->
+    insert into X_USER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="username != null">
+        USERNAME,
+      </if>
+      <if test="userpwd != null">
+        USERPWD,
+      </if>
+      <if test="realname != null">
+        REALNAME,
+      </if>
+      <if test="idCard != null">
+        ID_CARD,
+      </if>
+      <if test="idPhoto != null">
+        ID_PHOTO,
+      </if>
+      <if test="address != null">
+        ADDRESS,
+      </if>
+      <if test="phone != null">
+        PHONE,
+      </if>
+      <if test="email != null">
+        EMAIL,
+      </if>
+      <if test="telephone != null">
+        TELEPHONE,
+      </if>
+      <if test="purchasingId != null">
+        PURCHASING_ID,
+      </if>
+      <if test="supplyId != null">
+        SUPPLY_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=DECIMAL},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userpwd != null">
+        #{userpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null">
+        #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null">
+        #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="idPhoto != null">
+        #{idPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null">
+        #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="purchasingId != null">
+        #{purchasingId,jdbcType=DECIMAL},
+      </if>
+      <if test="supplyId != null">
+        #{supplyId,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zl.domain.XUser">
+    <!--@mbg.generated-->
+    update X_USER
+    <set>
+      <if test="username != null">
+        USERNAME = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userpwd != null">
+        USERPWD = #{userpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null">
+        REALNAME = #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null">
+        ID_CARD = #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="idPhoto != null">
+        ID_PHOTO = #{idPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        ADDRESS = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        PHONE = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null">
+        TELEPHONE = #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="purchasingId != null">
+        PURCHASING_ID = #{purchasingId,jdbcType=DECIMAL},
+      </if>
+      <if test="supplyId != null">
+        SUPPLY_ID = #{supplyId,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where USER_ID = #{userId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zl.domain.XUser">
+    <!--@mbg.generated-->
+    update X_USER
+    set USERNAME = #{username,jdbcType=VARCHAR},
+      USERPWD = #{userpwd,jdbcType=VARCHAR},
+      REALNAME = #{realname,jdbcType=VARCHAR},
+      ID_CARD = #{idCard,jdbcType=VARCHAR},
+      ID_PHOTO = #{idPhoto,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      PHONE = #{phone,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      TELEPHONE = #{telephone,jdbcType=VARCHAR},
+      PURCHASING_ID = #{purchasingId,jdbcType=DECIMAL},
+      SUPPLY_ID = #{supplyId,jdbcType=DECIMAL}
+    where USER_ID = #{userId,jdbcType=DECIMAL}
+  </update>
+</mapper>

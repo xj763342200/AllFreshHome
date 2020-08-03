@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zl.mapper.XSsMapper">
+  <resultMap id="BaseResultMap" type="com.zl.domain.XSs">
+    <!--@mbg.generated-->
+    <!--@Table X_SS-->
+    <id column="S_ID" jdbcType="DECIMAL" property="sId" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="STREET_ID" jdbcType="DECIMAL" property="streetId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    S_ID, "NAME", STREET_ID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from X_SS
+    where S_ID = #{sId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
+    <!--@mbg.generated-->
+    delete from X_SS
+    where S_ID = #{sId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.zl.domain.XSs">
+    <!--@mbg.generated-->
+    insert into X_SS (S_ID, "NAME", STREET_ID
+      )
+    values (#{sId,jdbcType=DECIMAL}, #{name,jdbcType=VARCHAR}, #{streetId,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zl.domain.XSs">
+    <!--@mbg.generated-->
+    insert into X_SS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sId != null">
+        S_ID,
+      </if>
+      <if test="name != null">
+        "NAME",
+      </if>
+      <if test="streetId != null">
+        STREET_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sId != null">
+        #{sId,jdbcType=DECIMAL},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="streetId != null">
+        #{streetId,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zl.domain.XSs">
+    <!--@mbg.generated-->
+    update X_SS
+    <set>
+      <if test="name != null">
+        "NAME" = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="streetId != null">
+        STREET_ID = #{streetId,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where S_ID = #{sId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zl.domain.XSs">
+    <!--@mbg.generated-->
+    update X_SS
+    set "NAME" = #{name,jdbcType=VARCHAR},
+      STREET_ID = #{streetId,jdbcType=DECIMAL}
+    where S_ID = #{sId,jdbcType=DECIMAL}
+  </update>
+</mapper>
